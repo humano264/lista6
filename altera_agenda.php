@@ -1,22 +1,24 @@
 <?php
-    include('conexao.php');
-    $id_agenda = $_GET['id_agenda'];
-    $sql = "SELECT * FROM agenda where id_agenda = $id_agenda";
-    $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_array($result);
+include('conexao.php');
+$id_agenda = $_GET['id_agenda'];
+$sql = "SELECT * FROM agenda where id_agenda = $id_agenda";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar</title>
+    <title>Mudar</title>
 </head>
+
 <body>
-<h1>Cadastro de Agenda</h1>
+    <h1>Cadastro da Agenda</h1>
     <form action="altera_agenda_exe.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id_agenda" value="<?php echo $row['id_agenda']?>">
+        <input type="hidden" name="id_agenda" value="<?php echo $row['id_agenda'] ?>">
         <div>
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome">
@@ -58,6 +60,7 @@
         </div>
         <input type="submit" value="Salvar">
     </form>
-    <a href = "listar_agenda.php"><button>Voltar</button></a>
+    <a href="listar_agenda.php"><button>Retroceder</button></a>
 </body>
+
 </html>
